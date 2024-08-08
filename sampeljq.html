@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialist Medical Center</title>
+    <style>
+        .ncap {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            opacity: 0; /* Initial state for animation */
+        }
+        .ncap .location {
+            color: darkorange;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .ncap .title {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .ncap .subtitle {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ncap">
+        <span class="location">Guimaras</span><br>
+        <span class="title">Specialist</span><br>
+        <span class="subtitle">Medical Center, Inc.</span>
+    </div>
+
+    <!-- Include the latest jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function loopAnimation() {
+                $('.ncap').fadeTo(2000, 1).delay(1000).fadeTo(2000, 0, function() {
+                    loopAnimation();
+                });
+            }
+            loopAnimation(); // Start the animation loop
+        });
+    </script>
+</body>
+</html>

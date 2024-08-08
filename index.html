@@ -1,12 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map Full Screen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Full-screen Google Map container */
+        .fullscreen-map {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full height of the viewport */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .fullscreen-map iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Centered content */
+        .centered-content {
+            z-index: 10;
+            text-align: center;
+            color: white;
+        }
+
+        /* Button to navigate to index.html content */
+        .map-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .map-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Additional content below the map */
+        .content {
+            padding: 20px;
+        }
+
+        .holder-7 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .box-7 {
+            flex: 1 1 100%;
+            margin-bottom: 20px;
+        }
+
+        .box-7 p {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .fas.fa-map-marker-alt {
+            color: #ff0000; /* Optional: Change color of the icon */
+            margin-right: 10px; /* Optional: Add some space between the icon and text */
+        }
+    </style>
 </head>
 <body>
-	<p>GSCI Website</p>
+    <!-- Full-screen Google Map -->
+    <div class="fullscreen-map" id="map">
+        <div class="centered-content">
+            <p style="font-size:3em; color:white; font-weight:bold;">Guimaras Specialist Medical Center Inc.</p>
+            <a href="home.html" class="map-button" onclick="scrollToContent()" style="text-decoration: none;">Explore More</a>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!3m2!1sfil!2sph!4v1722931773536!5m2!1sfil!2sph!6m8!1m7!1stnrWIk7aJAGTqKWGjXh7MA!2m2!1d10.59271777363703!2d122.6008720772642!3f26.756683!4f0!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
+    <!-- Additional content -->
+    <div id="content" class="content">
+        <!-- Your additional content goes here -->
+    </div>
+
+    <script>
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>

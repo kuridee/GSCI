@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="services.css">
+     <link rel="stylesheet" type="text/css" href="slider.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .Header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            position: relative;
+
+        
+        }
+        nav {
+            display: flex;
+            
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+             
+        }
+        nav li {
+            position: relative;
+        }
+        nav > ul > li {
+            padding: 10px 20px;
+        }
+        nav > ul > li > a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            font-weight: bold;
+        }
+        nav li:hover {
+          
+        }
+        a:hover {
+          
+        }
+
+        nav a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        background-color: darkorange;
+        transform-origin: bottom left;
+        transition: transform 0.3s ease-out;
+      }
+
+      nav a:hover::before {
+        transform: scaleX(1);
+      }
+
+        .child-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .child-nav li a {
+            text-decoration: none;
+            color: #1b598a;
+        }
+        nav li:hover .child-nav {
+            display: block;
+        }
+        .child-nav li {
+            width: 200px;
+        }
+        .child-nav a {
+            padding: 10px;
+            background-color: #fff;
+            display: block;
+        }
+        .child-nav a:hover {
+            color: darkorange;
+            
+        }
+        .box-1 {
+          
+            margin: 10px 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .box-1 i {
+            font-size: 140px; /* Adjust icon size */
+            margin-bottom: 10px;
+            color:#1b598a; /* Space between icon and label */
+        }
+
+        .box-1 i:hover{
+            color: orange;
+        }
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color:orange;
+            margin: 5px 0;
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #ffff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                height: 100%;
+                overflow-y: auto;
+
+            }
+            nav ul {
+                flex-direction: column;
+                padding: 0; /* Remove padding to eliminate extra space */
+                margin: 0; /* Remove margin */
+            }
+            nav li {
+                width: 100%;
+                text-align: left;
+
+            }
+            .menu-icon {
+                display: block;
+            }
+            .close-btn {
+                display: block;
+                font-size: 24px;
+                background: none;
+                border: none;
+                color: darkorange;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 1001; /* Ensure it is above other content */
+            }
+        }
+        @media (min-width: 769px) {
+            .close-btn {
+                display: none;
+            }
+        }
+        @media (max-width: 576px) {
+
+            .nicecontent{
+                height: 270px;
+                overflow: hidden;
+            }
+            .box-1 {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        .logo {
+            max-width: 120px;
+            height: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="Header">
+            <div>
+                <img src="l4.png" class="logo">
+                   <img src="l2.png" class="logo">
+                      <img src="l3.png" class="logo">
+                         <img src="l1.png" class="logo">
+
+            </div>
+            
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav id="mainNav">
+                <button class="close-btn" onclick="toggleMenu()">✖</button>
+                <ul>
+
+                     <li>
+                        <a href="home.html">Home</a>
+                    
+                    </li>
+                    <li>
+                        <a href="services.html">Services </a>
+                    
+                    </li>
+                    <li>
+                        <a href="doctors.html">Doctors</a>
+                        
+                    </li>
+                    <li>
+                        <a href="#">Resources</a>
+                        <ul class="child-nav">
+                            <li><a href="#">Resource 1</a></li>
+                            <li><a href="#">Resource 2</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#">Offerings</a>
+                        <ul class="child-nav">
+                            <li><a href="#">Offering 1</a></li>
+                            <li><a href="#">Offering 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+       
+                    		 <i class="fas fa-phone icon">
+                    		 	<a href="#" class="contacts"></a>
+                    		 </i>
+                    	
+                    	
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!--Header -->
+
+        <div class="headcontent">
+
+            <p class="headcap">
+                <p class="text">Our <span class="today">Services</span>
+            </p>
+            <p class="hcontent">
+                <span style="color:orange;"> "</span>
+               
+                <span style="color: #1b598a;">At our hospital</span>
+              
+
+                , we're dedicated to delivering exceptional medical care to every patient. Our team of highly skilled healthcare professionals provides a comprehensive range of specialized services, spanning from cardiology and neurology to oncology, pediatrics, and surgery. We're committed to delivering personalized care that prioritizes patient well-being, promotes health, and treats a broad spectrum of medical conditions. Whether you require routine check-ups or specialized treatment for a complex condition, our hospital is here to support you every step of your healthcare journey.
+                 <span style="color:orange;"> "</span>
+            </p>
+            
+        </div>
+        
+        <div class="first-services">
+
+            <p class="text">List of <span class="today">services.</span>
+
+        </p>
+            <div class="holder-services">
+                <div class="serbox-1 bt">
+                    <p class="sercap">Internal Medicine</p>
+                    <ul>
+                        <li>- Cardiology</li>
+                        <li>- Endocrinology</li>
+                        <li>- Gastroenterology</li>
+                        <li>- Nephrology</li>
+                        <li>- Oncology</li>
+                        <li>- Neurology</li>
+                        <li>- Pulmonary Medicine</li>
+
+                    </ul>
+                   
+                </div>
+                <div class="serbox-1 bt">
+                     <p class="sercap">Surgery</p>
+                    <ul>
+                        <li>- General Surgery</li>
+                        <li>- Neuro Surgery</li>
+                        <li>- Urology</li>
+                        <li>- Orthopedic Surgery/ Orthopedics</li>
+                        <li>- Opthalmology</li>
+                        <li>- Anesthesiology</li>
+
+                    </ul>
+                </div>
+
+                <div class="serbox-1 bt">
+                     <p class="sercap">Pediatrics</p>
+                    <ul>
+                        <li>- Pediatric Cardiology</li>
+                        <li>- Pediatric Endocrinology</li>
+                        <li>- Pediatric Hematology</li>
+                        <li>- Pediatric Gastroenterology</li>
+                        <li>- Pediatric Nephrology</li>
+                        <li>- Pediatric Neurology</li>
+                        <li>- Pediatric Oncology</li>
+                        <li>- Pediatric Pulmonology</li>
+                        <li>- Neonatology </li>
+
+                    </ul>
+                   
+                </div>
+
+                <div class="serbox-1 bt">
+                     <p class="sercap">Ancillary Services</p>
+                    <ul>
+                        <li>- Imaging / Radiology</li>
+                        <li>- Laboratory</li>
+                        <li>- Nutrition and Dietetics</li>
+                        <li>- Pharmacy</li>
+                    </ul>
+                   
+                </div>
+                <div class="serbox-1 bt">
+                     <p class="sercap">Other Services</p>
+                    <ul>
+                        <li>- Emergency Medicine Services</li>
+                        <li>- Out-patient Services</li>
+                        <li>- Nutrition and Dietetics</li>
+                        <li>- Hemodialysis</li>
+                    </ul>
+                   
+                </div>
+                <div class="serbox-1 bt">
+                     <p class="sercap">Family Medicine</p>
+                    <ul>
+                        <li>- Obstetrics and Gynecology </li>
+                                            </ul>
+                   
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="second-content">
+        	<div class="holder-2">
+        		
+        	<div class="box-2 abox">
+        		
+        		<div class="zooming-text">
+        		<p class="cap2">
+        	
+		        <span class="letter cap2">Need</span>
+		        <span class="letter cap2">Help</span>
+		        <span class="letter cap2">Finding</span>
+		        <span class="letter cap2">Care?</span>
+		       Our 24/7 Contact Center is Here for You!</p>
+
+    		</div>
+        		<p class="cap3">We understand that finding the right care can be challenging. That’s why our dedicated team is available 24/7 to provide support and assistance. Whether you need to schedule an appointment or have questions about our services, we’re here to make it easy for you to get the care you need.</p>
+
+        		<p class="cap4">Call us today at <span class="phone-number">09209464217</span></p>
+        		<button class="btn"> Call Now!</button>
+        			
+        	</div>
+        	<div class="box-2 bbox">
+        		<img src="calling.jpg" class="pic2">
+        		
+        	</div>
+        	
+        	</div>
+            
+        </div>
+        <div class="third-content">
+        <div class="holder-3">
+           <div class="zooming-text th">
+        <span class="letter third-text">G</span>
+        <span class="letter third-text">S</span>
+        <span class="letter third-text">M</span>
+        <span class="letter third-text">C</span>
+        <span class="letter third-text">I</span>
+    		</div>
+        </div>
+
+        <p class="third-cap">Guimaras Specialist Medical  Center, Inc. <br> San Miguel, Jordan, Guimaras </p>
+     
+    </div>
+
+<!-- 4rt Content Area-->
+
+    <div class="forth-content">
+
+    	<p class="doctor">Doctors and
+
+    	<span class="nurses">Nurses</span> </p>
+    	<div class="slider">
+        <div class="slides">
+            <!-- Add as many images as you like -->
+            <div class="slide"><img src="n1.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="n2.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="n5.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="n4.jpg" alt="Image 4"></div>
+
+            <div class="slide"><img src="n1.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="n2.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="n5.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="n4.jpg" alt="Image 4"></div>
+
+        </div>
+    </div>
+
+    </div>
+
+
+    <div class="fifth">
+    	<div class="holder-4">
+    	<div class="box-3 b3">
+    		<p class="vs">Our 
+    			<span style="color:orange;">
+    					Mission
+    			</span>
+    	</p>
+    		<p class="vscap">To provide affordable, quality healthcare and accomodation to the people of Guimaras and nearby provinces. </p>
+    	</div>
+
+    	<div class="box-3 b4">
+    		<p class="vs">Our
+    			<span style="color:orange;"> Vision</span>
+
+    		</p>
+    		<p class="vscap">To be the most trusted and highest quality healthcare provider in the island of Guimaras and nearby provinces through affordable state-of-the-art equipment, quality accomodation and competent personnel.  </p>
+
+    	</div>
+    	</div>
+    </div>
+
+     <div class="six">
+    	<div class="holder-4">
+    	<div class="box-3 b3">
+    		<p class="vs">Our 
+    			<span style="color: orange;">Goals</span>
+
+    	</p>
+    		<p class="vscap go"> * To provide the highest quality affordable medical care at the hospital and its community with utmost compassion and integrity. <br>
+    			* To provide and actively participate in the continuing medical education of the physicians and its medical staff.<br>
+    			* To provide and recommend ways to upgrade hospital services and facilities. <br>
+    			* To promote harmonious and dynamic personal relationships among medical and hospital staff. 
+    		 </p>
+
+    	</div>
+    	</div>
+    </div>
+
+
+      <div class="seven">
+    <div class="holder-7">
+        <div class="box-7">
+            <i class="fas fa-map-marker-alt"></i> 
+            <p style="font-size:2em;">Guimaras Specialist Medical Center, Inc.<br>
+                <span style="font-size:24px;"> Brgy. San Miguel, Jordan, Guimaras 5045</span>
+
+           </p>
+      
+
+        </div>
+        <div class="box-7">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52871.568552810386!2d122.59710779104829!3d10.600353847561703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aeed18c8a73895%3A0xd9a9ea384be6a6fd!2sGuimaras%20Specialist%20Medical%20Center%2C%20Inc.!5e0!3m2!1sfil!2sph!4v1722930476671!5m2!1sfil!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+        </div>
+    </div>
+</div>
+
+
+ 
+    <div class="footer">
+
+    	<div class="holder-5">
+    	<div class="ft-box">
+    	<img src="hay.png" class="logo">
+    	<p>
+    		<span class="fmcap">
+    			Guimaras Specialist Medical Center Inc.
+    		</span>
+    		<span class="fmtext">
+    		<br>gsmciguimaras@gmail.com<br>09209464217<br>gsmci@2024
+    		</span>
+    	</p>
+    	
+
+    	</div>
+    	<div class="ft-box">
+    		<p class="ftcap">Resources</p>
+    		<a href="">Find a Doctor</a>
+    		<a href="">Facilities</a>
+    		<a href="">Explore Careers</a>
+    		<a href="">Practice Medicine</a>
+
+    	</div>
+
+    	<div class="ft-box">
+    		<p class="ftcap">Services</p>
+
+    		<a href="">Healthway Multi-
+    		Centers </a>
+
+    		<a href="">Health Cancer </a>
+
+    		<a href="">Healthway Multi-
+    		Centers </a>
+
+    		<a href="">Healthway Multi-
+    		Centers </a>
+    		
+    	</div>
+
+
+    	<div class="ft-box">
+    		<p class="ftcap">Social Media</p>
+
+    		<a href=""><i class="fab fa-facebook-f"></i>Facebook</a>
+                <a href=""><i class="fab fa-instagram"></i>Instagram</a>
+                <a href=""><i class="fab fa-twitter"></i>Twitter</a>
+                
+    	</div>
+
+
+    	</div>
+
+
+    </div>
+
+</div>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('mainNav');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+            }
+        }
+
+        // Ensure the menu is hidden on desktop view when resizing the window
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 769) {
+                document.getElementById('mainNav').style.display = 'flex';
+            } else {
+                document.getElementById('mainNav').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
